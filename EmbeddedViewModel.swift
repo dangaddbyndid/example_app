@@ -26,5 +26,5 @@ struct EmbeddedViewModel {
     let tokenEndpoint = URL(string: "https://auth.byndid.com/v2/token")!
 
     /// WARNING: This is only to demo what your server should do. Never store a client secret in your app.
-    let confidentialClientSecret = "201866a137f9d3567f86dccdb3105764"
+    let confidentialClientSecret = "201866a"
 }
