@@ -11,7 +11,7 @@ class EmbeddedViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
 
         view.backgroundColor = UIColor.systemBackground
-        navigationItem.title = "Embedded Demo"
+        navigationItem.title = "Embedded Demo 2"
     }
     
     @available(*, unavailable)
