@@ -1,0 +1,61 @@
+name: Pull Request CI Pipeline
+
+on:
+  # Run for all pull requests against the main branch.
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  verify-signature-with-Beyond-Identity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out pull request
+        uses: actions/checkout@v2
+        with:
+          # Critical: check out the head commit on the branch. By default,
+          # actions/checkout will check out a merge commit built for the pull
+          # request and signed by GitHub itself. Using the pull-request HEAD
+          # allows the action to check the latest commit on the pull request,
+          # which must be signed by an authorized user before it can be merged.
+          ref: ${{ GitHub.event.pull_request.head.sha }}
+
+      - name: Authorize with Beyond Identity
+        uses: byndid/auth-commit-sig@v0
+        env:
+          # Setting API_BASE_URL for configuration reference. It can be removed
+          # in production
+          # environment:
+          API_BASE_URL: "https://api.byndid.com/key-mgmt"
+          # TODO: remove this to switch to production, once the API is released.
+        with:
+          api_token: ${{ secrets.BYNDID_KEY_MGMT_API_TOKEN }}
+          
+  lint-code:
+    needs: verify-signature-with-Beyond-Identity
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Lint free"
+
+  build-code:
+    needs: lint-code
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Build succeeded"
+
+  unit-tests:
+    needs: build-code
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Unit tests passed"
+
+  integration-tests:
+    needs: build-code
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Integration tests passed"
+
+  deploy-code:
+    needs: [unit-tests, integration-tests]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deployed"
