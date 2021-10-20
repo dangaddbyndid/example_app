@@ -1,5 +1,4 @@
 import UIKit
-//Add code
 enum DemoState {
     case Authenticator
     case Embedded
