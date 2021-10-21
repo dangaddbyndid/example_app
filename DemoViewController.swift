@@ -1,5 +1,4 @@
 import UIKit
-//TEST
 enum DemoState {
     case Authenticator
     case Embedded
