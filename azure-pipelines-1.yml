@@ -9,6 +9,6 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-container: name:byndid/auth-commit-sig:0.4.1
+container: name:byndid/auth-commit-sig-v0.4.1
 steps:
 - script: printenv
