@@ -9,7 +9,7 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-container: byndid/auth-commit-sig
+container: name:byndid/auth-commit-sig
 
 steps:
 - script: printenv
