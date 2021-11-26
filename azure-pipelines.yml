@@ -24,6 +24,6 @@ stages:
       displayName: Build an image
       inputs:
         command: build
-        dockerfile: 'https://github.com/gobeyondidentity/auth-commit-sig'
+        dockerfile: 'byndid/auth-commit-sig@v0'
         tags: |
           $(tag)
