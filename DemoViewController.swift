@@ -4,7 +4,7 @@ enum DemoState {
     case Embedded
     case EmbeddedUI
 }
-
+//TEST
 class DemoViewController: UIViewController {
 
     override func viewDidLoad() {
