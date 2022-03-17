@@ -1,4 +1,5 @@
 import UIKit
+//TEST
 class InputViewController: UIViewController {
     let textField = UITextField()
     let submitAction: (String) -> Void
