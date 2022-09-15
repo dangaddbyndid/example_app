@@ -1,4 +1,4 @@
-//VANILLA
+//SHOULD NOT HAVE MERGED
 import UIKit
 class InputViewController: UIViewController {
     let textField = UITextField()
