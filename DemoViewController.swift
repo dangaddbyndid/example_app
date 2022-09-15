@@ -1,4 +1,3 @@
-//TEST
 import UIKit
 enum DemoState {
     case Authenticator
