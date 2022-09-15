@@ -1,4 +1,4 @@
-//TEST
+//VANILLA
 import UIKit
 class InputViewController: UIViewController {
     let textField = UITextField()
